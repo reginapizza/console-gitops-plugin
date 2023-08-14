@@ -92,7 +92,8 @@
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-router-hash-link": "^2.0.0",
-    "redux": "4.0.1"
+    "redux": "4.0.1",
+    "semver": "5.7.2"
   },
   "//TODO": [
     "For @patternfly/react-icons: find another solution for icons from older react-icons version and remove this dependency."

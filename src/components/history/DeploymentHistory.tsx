@@ -25,12 +25,14 @@ type GitOpsDeploymentHistoryProps = {
     emptyStateMsg: string;
     envs: string[];
     applicationBaseURI: string;
+    location?: Location;
   };
 };
 const GitOpsDeploymentHistory: React.FC<GitOpsDeploymentHistoryProps> = ({
   customData: { emptyStateMsg, envs, applicationBaseURI },
 }) => {
   const { t } = useTranslation('plugin__gitops-plugin');
+  // const location = useLocation();
   const columns = DeploymentHistoryColumns();
   const envRowFilters: RowFilter[] = [
     {

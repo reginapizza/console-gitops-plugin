@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import { useParams } from 'react-router-dom-v5-compat';
 
 import { LoadingBox } from '@patternfly/quickstarts';
 
@@ -23,10 +24,15 @@ type EnvironmentDetailsPageProps = GitOpsOverviewPageProps;
 
 const EnvironmentDetailsPage: React.FC<EnvironmentDetailsPageProps> = (props) => {
   const { emptyStateMsg, envs, applicationBaseURI, manifestURL } = props.customData;
-  const appName = props.appName;
+  const { appName } = useParams();
 
   const [envsData, setEnvsData] = React.useState<GitOpsEnvironment[]>(null);
   const [error, setError] = React.useState<Error>(null);
+
+  console.log("appname:,", appName)
+  console.log("applicationBaseURI:", applicationBaseURI)
+  console.log("manifestURL:", manifestURL)
+  console.log("envs:", envs)
 
   React.useEffect(() => {
     const getEnvsData = async () => {

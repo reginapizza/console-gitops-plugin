@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom-v5-compat';
+import { useParams, useLocation } from 'react-router-dom-v5-compat';
 
 import { HorizontalNav, NavPage } from '@openshift-console/dynamic-plugin-sdk';
 import { LoadingBox } from '@patternfly/quickstarts';
@@ -15,10 +15,15 @@ import EnvironmentDetailsPage from './EnvironmentDetailsPage';
 export const EnvironmentDetailsPageTabs: React.FC = () => {
   const { t } = useTranslation('plugin__gitops-plugin');
   const { appName } = useParams();
+  const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const manifestURL = searchParams.get('url');
   const applicationBaseURI = `/application/${appName}?url=${manifestURL}&app=${appName}`;
   const [envs, emptyStateMsg] = useEnvDetails(appName, manifestURL);
+
+  console.log("URL is", location.pathname)
+  console.log("appname is", appName)
+  console.log("manifestURL is", manifestURL)
 
   const pages: NavPage[] = React.useMemo(
     () => [
@@ -51,6 +56,7 @@ export const EnvironmentDetailsPageTabs: React.FC = () => {
         <title>{t('plugin__gitops-plugin~{{appName}} · Details', { appName })}</title>
       </Helmet>
       <EnvironmentDetailsPageHeading
+        url={location.pathname}
         appName={appName}
         manifestURL={manifestURL}
         badge={<DevPreviewBadge />}

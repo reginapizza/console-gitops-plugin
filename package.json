@@ -23,7 +23,7 @@
     "@patternfly/quickstarts": "2.4.0",
     "@patternfly/react-charts": "6.94.19",
     "@patternfly/react-core": "4.276.8",
-    "@patternfly/react-icons": "3.15.17",
+    "@patternfly/react-icons": "^4.93.6",
     "@patternfly/react-table": "4.113.0",
     "@patternfly/react-tokens": "4.94.6",
     "@patternfly/react-topology": "5.0.0",
@@ -68,7 +68,9 @@
   },
   "resolutions": {
     "glob-parent": "^5.1.2",
-    "showdown": "^2.1.0"
+    "showdown": "^2.1.0",
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
   },
   "consolePlugin": {
     "name": "gitops-plugin",
@@ -86,6 +88,8 @@
   },
   "dependencies": {
     "classnames": "2.x",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
     "git-url-parse": "^13.1.0",
     "react": "^17.0.2",
     "react-redux": "7.2.2",
@@ -93,7 +97,9 @@
     "react-router-dom": "5.3.x",
     "react-router-dom-v5-compat": "^6.11.2",
     "react-router-hash-link": "^2.0.0",
-    "redux": "4.0.1"
+    "redux": "4.0.1",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0"
   },
   "//TODO": [
     "For @patternfly/react-icons: find another solution for icons from older react-icons version and remove this dependency."
